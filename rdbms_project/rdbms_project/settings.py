@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'django_extensions',
     # 'corsheader',
     'rest_framework',
+    'user',
 ]
 
 MIDDLEWARE = [
@@ -84,11 +85,12 @@ WSGI_APPLICATION = 'rdbms_project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'blogDB',
-        'USER': 'yooodleee',
-        'PASSWORD': 'eddi@123',
-        'HOST': 'localhost',
-        'PORT': '3306',
+        'NAME': os.getenv('DATABASE_NAME'),
+        'USER': os.getenv('DATABASE_USER'),
+        'PASSWORD': os.getenv('DATABASE_PASSWORD'),
+        'HOST': os.getenv('DATABASE_HOST'),
+        'PORT': os.getenv('DATABASE_PORT'),
+        'OPTIONS': {'charset': 'utf8mb4'},
     }
 }
 
