@@ -17,16 +17,16 @@ class UserRepositoryImpl(UserRepository):
         if cls.__instance is None:
             cls.__instance = cls()
 
-    def create_user(username, email, hashed_password):
+    def create_user(self, username, email, hashed_password):
         return User.objects.create(username=username, email=email, password=hashed_password)
     
-    def get_user_by_id(user_id):
+    def get_user_by_id(self, user_id):
         return User.objects.filter(user_id=user_id).first()
     
-    def get_user_by_email(email):
+    def get_user_by_email(self, email):
         return User.objects.filter(email=email).first()
     
-    def update_user(user_id, username=None, email=None, password=None):
+    def update_user(self, user_id, username=None, email=None, password=None):
         try:
             user = User.objects.get(user_id=user_id)
             if username:
@@ -40,5 +40,5 @@ class UserRepositoryImpl(UserRepository):
         except ObjectDoesNotExist:
             return None
     
-    def delete_user(user_id):
+    def delete_user(self, user_id):
         return User.objects.filter(user_id=user_id).delete()
