@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     # 'corsheader',
     'rest_framework',
     'user',
+    'post',
 ]
 
 MIDDLEWARE = [
