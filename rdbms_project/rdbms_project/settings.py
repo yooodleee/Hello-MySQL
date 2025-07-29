@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'user',
     'post',
     'comment',
+    'drf_yasg',
 ]
 
 MIDDLEWARE = [
